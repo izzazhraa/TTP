@@ -57,6 +57,27 @@
             overflow: hidden;
         }
 
+        /* Judul Rundown dengan Background Tersendiri */
+        .rundown-title {
+            display: inline-block;
+            background: rgba(255, 253, 247, 0.95);
+            color: #14532d;
+            padding: 10px 24px;
+            border-radius: 14px;
+            border: 2px solid rgba(180, 83, 9, 0.35);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Supaya timeline lebih mudah dibaca di atas background */
+        .rundown-content {
+            background: rgba(255, 253, 247, 0.90);
+            border-radius: 16px;
+            padding: 20px 18px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
         /* Soft swaying animations for vintage feel */
         @keyframes sway {
             0%, 100% { transform: rotate(-3deg); }
@@ -191,9 +212,16 @@
 
         <!-- Rundown / Susunan Acara -->
         <section class="rundown-picnic">
-            <h3 class="font-serif-elegant font-bold text-xl text-emerald-900 text-center uppercase tracking-wider mb-6">
-                Susunan Acara Piknik
-            </h3>
+
+             <!-- Judul Rundown -->
+            <div class="text-center mb-6">
+                <h3 class="rundown-title font-serif-elegant font-bold text-xl uppercase tracking-wider">
+                    Susunan Rundown
+                </h3>
+            </div>
+
+             <!-- Isi Rundown -->
+            <div class="rundown-content">
             
             <div class="relative border-l-2 border-red-700/40 ml-4 space-y-6 pb-2">
                 <!-- Item 1 -->
@@ -245,7 +273,8 @@
                     <h4 class="font-serif-elegant font-bold text-stone-900 text-base mt-1">Karoeke Set</h4>
                 </div>
             </div>
-        </section>
+         </div>
+     </section>
 
         <!-- Divider -->
         <div class="flex items-center justify-center px-12 my-6">
