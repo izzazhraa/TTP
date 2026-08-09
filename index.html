@@ -39,15 +39,22 @@
 
         /* BACKGROUND UTAMA UNDANGAN */
         .picnic-sheet {
-            background-image: url('picnic-bg.png');
-            background-size: 100% 100%;
-            background-position: center top;
-            background-repeat: no-repeat;
+            background-color: #fffdf7;
             box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-            padding: 60px 90px;
+            padding: 0;
+        }
         
-            /* Jangan buat background cream lagi */
-            padding: 60px 90px;
+        /* BACKGROUND KHUSUS RUNDOWN */
+        .rundown-picnic {
+            background-image: url('picnic-bg.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 20px;
+            padding: 35px 30px;
+            margin: 20px 24px;
+            position: relative;
+            overflow: hidden;
         }
 
         /* Soft swaying animations for vintage feel */
@@ -183,7 +190,7 @@
         </div>
 
         <!-- Rundown / Susunan Acara -->
-        <section class="px-6 py-4">
+        <section class="rundown-picnic">
             <h3 class="font-serif-elegant font-bold text-xl text-emerald-900 text-center uppercase tracking-wider mb-6">
                 Susunan Acara Piknik
             </h3>
