@@ -30,7 +30,7 @@
         
         /* COVER PICNIC */
         .cover-picnic {
-            background-image: url('picnic-bg.jpg');
+            background-image: url('picnic-bg.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -39,8 +39,19 @@
 
         /* Picnic invitation sheet */
         .picnic-sheet {
-            background-color: #fffdf9;
+            background-image: url('picnic-bg.png');
+            background-size: cover;
+            background-position: center top;
+            background-repeat: no-repeat;
             box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            padding: 45px 38px;
+        }
+
+        .invitation-paper {
+            background-color: #fffdf7;
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            overflow: hidden;
         }
 
         /* Soft swaying animations for vintage feel */
@@ -107,7 +118,9 @@
         </div>
     </div>
 
-    <main id="main-content" class="w-full max-w-md mx-auto my-0 md:my-8 picnic-sheet relative overflow-hidden hidden transition-opacity duration-700 opacity-0">
+    <main id="main-content" class="w-full max-w-2xl mx-auto my-0 md:my-8 picnic-sheet relative overflow-hidden hidden transition-opacity duration-700 opacity-0">
+    
+        <div class="invitation-paper">
         
         <!-- Floating Music Control Widget -->
         <div class="fixed bottom-4 right-4 z-40 bg-emerald-900/90 text-amber-100 p-3 rounded-full shadow-xl flex items-center space-x-2 backdrop-blur border border-amber-200/40">
