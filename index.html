@@ -18,16 +18,14 @@
         .font-cursive { font-family: 'Great Vibes', cursive; }
         .font-sans-clean { font-family: 'Quicksand', sans-serif; }
 
-        /* Gingham Picnic Pattern Background */
+       /* Picnic Grass Background */
         .bg-gingham {
-            background-color: #fff;
-            background-image: 
-                linear-gradient(45deg, rgba(239, 68, 68, 0.08) 25%, transparent 25%), 
-                linear-gradient(-45deg, rgba(239, 68, 68, 0.08) 25%, transparent 25%), 
-                linear-gradient(45deg, transparent 75%, rgba(239, 68, 68, 0.08) 75%), 
-                linear-gradient(-45deg, transparent 75%, rgba(239, 68, 68, 0.08) 75%);
-            background-size: 40px 40px;
-            background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+            background-color: #3f7d35;
+            background-image: url('picnic-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
         }
 
         /* Vintage Paper Texture Overlay */
@@ -57,7 +55,7 @@
 </head>
 <body class="bg-emerald-950 bg-gingham font-sans-clean text-stone-800 antialiased min-h-screen flex flex-col justify-center items-center overflow-x-hidden selection:bg-red-200 selection:text-red-900">
 
-    <div id="cover-page" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-emerald-950/90 backdrop-blur-md transition-opacity duration-1000">
+    <div id="cover-page" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/10 backdrop-blur-[1px] transition-opacity duration-1000">
         <div class="relative w-full max-w-md paper-texture rounded-3xl p-8 text-center shadow-2xl overflow-hidden border-4 border-amber-100">
             <!-- Decorative Flower / Daisy Corner Accent -->
             <div class="absolute -top-6 -left-6 w-20 h-20 bg-rose-100 rounded-full opacity-70 blur-sm pointer-events-none"></div>
