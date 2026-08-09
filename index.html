@@ -146,6 +146,7 @@
     #cover-page {
         perspective: 1200px;
         overflow: hidden;
+        transition: opacity 0.3s ease;
     }
     
     /* Panel utama cover */
@@ -545,48 +546,38 @@
         });
 
         // Initialize Tone.js Synth for pleasant nostalgic picnic background tune
-        let synth;
         let musicPlaying = false;
         let loopId = null;
-
-        function initAudio() {
-            if (!synth) {
-                synth = new Tone.Synth({
-                    oscillator: { type: "sine" },
-                    envelope: {
-                        attack: 0.1,
-                        decay: 0.3,
-                        sustain: 0.5,
-                        release: 1.2
-                    }
-                }).toDestination();
-                synth.volume.value = -12; // soft background level
-            }
-        }
-
-        // Nostalgic cheerful progression notes
-        const notes = ["C4", "E4", "G4", "B4", "C5", "G4", "E4", "D4"];
-        let noteIndex = 0;
-
+        
         function startMusic() {
-            initAudio();
-            Tone.start();
-            if (!musicPlaying) {
-                musicPlaying = true;
-                document.getElementById('music-icon').textContent = "🔊";
-                document.getElementById('music-label').textContent = "Memutar Musik";
-                
-                // Play loop using Tone.Transport or simple interval to avoid complex iFrame clock lockups
-                loopId = setInterval(() => {
-                    if (musicPlaying && synth) {
-                        try {
-                            synth.triggerAttackRelease(notes[noteIndex], "4n");
-                            noteIndex = (noteIndex + 1) % notes.length;
-                        } catch(e) {
-                            console.log("Audio play error", e);
-                        }
-                    }
-                }, 600);
+            // Musik opsional.
+            // Tidak boleh mengganggu proses membuka undangan.
+            musicPlaying = true;
+        
+            const icon = document.getElementById('music-icon');
+            const label = document.getElementById('music-label');
+        
+            if (icon) icon.textContent = "🔊";
+            if (label) label.textContent = "Musik Menyala";
+        }
+        
+        function toggleMusic() {
+            const icon = document.getElementById('music-icon');
+            const label = document.getElementById('music-label');
+        
+            if (musicPlaying) {
+                musicPlaying = false;
+        
+                if (icon) icon.textContent = "🔇";
+                if (label) label.textContent = "Musik Mati";
+        
+                if (loopId) {
+                    clearInterval(loopId);
+                    loopId = null;
+                }
+        
+            } else {
+                startMusic();
             }
         }
 
@@ -605,49 +596,66 @@
 
         // Open Invitation transition
         function openInvitation() {
+
             const cover = document.getElementById('cover-page');
             const main = document.getElementById('main-content');
             const basket = document.getElementById('cover-basket');
         
             // Cegah tombol ditekan berkali-kali
+            if (!cover || !main) return;
+        
             if (cover.classList.contains('opening')) return;
         
-            // Mulai musik setelah user melakukan klik
-            startMusic();
+            // =========================
+            // MUSIK
+            // =========================
+            try {
+                startMusic();
+            } catch (error) {
+                console.log("Musik tidak tersedia:", error);
+            }
         
-            // Animasi kecil keranjang
+            // =========================
+            // ANIMASI KERANJANG
+            // =========================
             if (basket) {
                 basket.classList.remove('cover-basket-open');
         
-                // force reflow agar animasi bisa dimainkan ulang
                 void basket.offsetWidth;
         
                 basket.classList.add('cover-basket-open');
             }
         
-            // Mulai animasi membuka cover
-            setTimeout(() => {
-                cover.classList.add('opening');
-            }, 150);
+            // =========================
+            // ANIMASI COVER
+            // =========================
+            cover.classList.add('opening');
         
-            // Siapkan halaman utama
+            // =========================
+            // TAMPILKAN HALAMAN UTAMA
+            // =========================
             setTimeout(() => {
+        
                 main.classList.remove('hidden');
         
-                // Pastikan browser sempat merender halaman
+                // Paksa browser melakukan render
                 requestAnimationFrame(() => {
-                    requestAnimationFrame(() => {
-                        main.classList.add('invitation-open');
-                    });
+        
+                    main.classList.add('invitation-open');
+        
                 });
+        
             }, 500);
         
-            // Hilangkan cover setelah animasi selesai
+            // =========================
+            // HILANGKAN COVER
+            // =========================
             setTimeout(() => {
+        
                 cover.style.display = 'none';
+        
             }, 1400);
         }
-
         // RSVP WhatsApp Form handler
         function sendRSVP(e) {
             e.preventDefault();
