@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan: TIBA-TIBA PIKNIK – UNFEST 10</title>
+    <!-- Tailwind CSS for styling helper classes -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tone.js for background nostalgic picnic music -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+    <!-- Google Fonts for Elegant Serif and Playful Cursive -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom Font Families */
+        .font-serif-elegant { font-family: 'Playfair Display', serif; }
+        .font-cursive { font-family: 'Great Vibes', cursive; }
+        .font-sans-clean { font-family: 'Quicksand', sans-serif; }
+
+        /* Gingham Picnic Pattern Background */
+        .bg-gingham {
+            background-color: #fff;
+            background-image: 
+                linear-gradient(45deg, rgba(239, 68, 68, 0.08) 25%, transparent 25%), 
+                linear-gradient(-45deg, rgba(239, 68, 68, 0.08) 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, rgba(239, 68, 68, 0.08) 75%), 
+                linear-gradient(-45deg, transparent 75%, rgba(239, 68, 68, 0.08) 75%);
+            background-size: 40px 40px;
+            background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+        }
+
+        /* Vintage Paper Texture Overlay */
+        .paper-texture {
+            background: #fffdf9;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15), 0 5px 15px rgba(0, 0, 0, 0.08);
+            border: 2px solid #e7e0d3;
+        }
+
+        /* Soft swaying animations for vintage feel */
+        @keyframes sway {
+            0%, 100% { transform: rotate(-3deg); }
+            50% { transform: rotate(3deg); }
+        }
+        .animate-sway {
+            animation: sway 4s ease-in-out infinite;
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        .animate-float {
+            animation: floatSlow 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-emerald-950 bg-gingham font-sans-clean text-stone-800 antialiased min-h-screen flex flex-col justify-center items-center overflow-x-hidden selection:bg-red-200 selection:text-red-900">
+
+    <div id="cover-page" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-emerald-950/90 backdrop-blur-md transition-opacity duration-1000">
+        <div class="relative w-full max-w-md paper-texture rounded-3xl p-8 text-center shadow-2xl overflow-hidden border-4 border-amber-100">
+            <!-- Decorative Flower / Daisy Corner Accent -->
+            <div class="absolute -top-6 -left-6 w-20 h-20 bg-rose-100 rounded-full opacity-70 blur-sm pointer-events-none"></div>
+            <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-yellow-100 rounded-full opacity-70 blur-sm pointer-events-none"></div>
+
+            <div class="relative z-10">
+                <!-- Vintage Badge -->
+                <div class="inline-block bg-red-800 text-amber-50 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4 shadow-sm">
+                    Undangan Eksklusif Piknik
+                </div>
+
+                <p class="font-cursive text-3xl text-emerald-800 mb-1">Kepada Yth.</p>
+                <div id="recipient-name" class="font-serif-elegant font-bold text-2xl md:text-3xl text-stone-900 mb-6 border-b-2 border-dashed border-stone-300 pb-3 px-2 inline-block max-w-full truncate">
+                    Rekan Undangan
+                </div>
+
+                <div class="my-4 flex justify-center">
+                    <!-- Picnic Basket SVG Illustration -->
+                    <svg class="w-24 h-24 animate-float text-amber-800" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C8.686 2 6 4.686 6 8h12c0-3.314-2.686-6-6-6zM3 10v2h1v8c0 1.105.895 2 2 2h12c1.105 0 2-.895 2-2v-8h1v-2H3zm4 2h10v8H7v-8z"/>
+                        <path d="M12 4c1.105 0 2 .895 2 2H10c0-1.105.895-2 2-2z"/>
+                    </svg>
+                </div>
+
+                <h1 class="font-serif-elegant text-3xl md:text-4xl font-extrabold text-red-700 tracking-wide uppercase mb-1">
+                    Tiba-Tiba Piknik
+                </h1>
+                <p class="font-serif-elegant text-xl font-bold text-emerald-900 tracking-wider mb-6">
+                    UNFEST 10
+                </p>
+
+                <p class="text-xs text-stone-600 mb-6 italic">
+                    Tanpa disangka-sangka, tikar digelar dan keranjang dibuka. Anda dengan hormat diundang hadir dalam hajat santai kami.
+                </p>
+
+                <button onclick="openInvitation()" class="w-full bg-gradient-to-r from-red-700 to-red-800 hover:from-red-800 hover:to-red-900 text-amber-50 font-serif-elegant font-bold py-3.5 px-6 rounded-full shadow-lg transform transition active:scale-95 flex items-center justify-center space-x-2 border-2 border-amber-200/50">
+                    <svg class="w-5 h-5 text-amber-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M12 11.5V21"></path></svg>
+                    <span>BUKA UNDANGAN</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <main id="main-content" class="w-full max-w-md mx-auto my-0 md:my-8 paper-texture md:rounded-3xl shadow-2xl relative overflow-hidden hidden transition-opacity duration-700 opacity-0 border-x-0 md:border-2 border-amber-200">
+        
+        <!-- Floating Music Control Widget -->
+        <div class="fixed bottom-4 right-4 z-40 bg-emerald-900/90 text-amber-100 p-3 rounded-full shadow-xl flex items-center space-x-2 backdrop-blur border border-amber-200/40">
+            <button id="music-toggle" onclick="toggleMusic()" class="w-10 h-10 flex items-center justify-center rounded-full bg-red-700 hover:bg-red-800 text-amber-100 transition shadow-inner">
+                <span id="music-icon" class="text-lg">🎵</span>
+            </button>
+            <span class="text-xs font-medium pr-2 hidden sm:inline font-sans-clean" id="music-label">Musik Piknik</span>
+        </div>
+
+        <!-- Header Section -->
+        <section class="text-center px-6 pt-12 pb-8 relative bg-gradient-to-b from-amber-50/80 to-transparent">
+            <!-- Decorative Daisy SVGs -->
+            <div class="absolute top-4 left-6 text-yellow-500 opacity-80 animate-sway">🌼</div>
+            <div class="absolute top-10 right-6 text-purple-400 opacity-80 animate-float">🌸</div>
+            
+            <p class="font-cursive text-3xl text-emerald-800 mb-1">Undangan Resmi & Santai</p>
+            <h2 class="font-serif-elegant text-4xl md:text-5xl font-black text-red-700 tracking-wider uppercase drop-shadow-sm">
+                Tiba-Tiba Piknik
+            </h2>
+            <div class="inline-block bg-emerald-900 text-amber-50 px-4 py-1 rounded-full text-sm font-bold tracking-widest mt-2 mb-4 shadow-sm">
+                UNFEST 10
+            </div>
+            <p class="font-serif-elegant italic text-stone-600 text-sm max-w-xs mx-auto">
+                "Bawa senyummu, siapkan alas dudukmu, mari kita merumput bersama dalam perayaan penuh kehangatan."
+            </p>
+        </section>
+
+        <!-- Divider -->
+        <div class="flex items-center justify-center px-12 my-2">
+            <div class="h-px bg-stone-300 w-full"></div>
+            <span class="px-3 text-red-700 text-lg">🧺</span>
+            <div class="h-px bg-stone-300 w-full"></div>
+        </div>
+
+        <!-- Event Details Section (Hajatan Style) -->
+        <section class="px-6 py-6 text-center">
+            <h3 class="font-serif-elegant font-bold text-xl text-emerald-900 uppercase tracking-wider mb-6 border-b border-stone-200 pb-2 inline-block">
+                Waktu & Tempat Pesta Rumput
+            </h3>
+            
+            <div class="space-y-6">
+                <!-- Date & Time Card -->
+                <div class="bg-amber-50/60 rounded-2xl p-4 border border-amber-200/60 shadow-xs">
+                    <div class="text-red-700 font-bold text-lg mb-1">🗓️ HARI / TANGGAL</div>
+                    <div class="font-serif-elegant text-xl font-bold text-stone-900">Sabtu, 22 Agustus 2026</div>
+                    <div class="text-sm text-stone-600 mt-1">Pukul 15.30 WIB s.d. Selesai (Menjelang Senja)</div>
+                </div>
+
+                <!-- Location Card -->
+                <div class="bg-amber-50/60 rounded-2xl p-4 border border-amber-200/60 shadow-xs">
+                    <div class="text-red-700 font-bold text-lg mb-1">📍 LOKASI / PANGGUNG RUMPUT</div>
+                    <div class="font-serif-elegant text-lg font-bold text-stone-900">Lapangan Hijau Unfest Park</div>
+                    <p class="text-xs text-stone-600 mt-1">Jl. Rindang Asri No. 10, Kota Kreatif</p>
+                    <a href="https://maps.google.com" target="_blank" class="inline-block mt-3 bg-emerald-800 hover:bg-emerald-900 text-amber-50 text-xs font-bold py-2 px-4 rounded-full shadow transition">
+                        🗺️ Buka Google Maps
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dress Code Section -->
+        <section class="px-6 py-4 text-center bg-stone-50/50">
+            <h4 class="font-serif-elegant font-bold text-lg text-emerald-900 mb-2">👗 Dress Code & Perlengkapan</h4>
+            <p class="text-sm text-stone-700 mb-3">
+                Bertema <strong class="text-red-700">Vintage Picnic / Gingham / Earth Tone</strong>. Sangat dianjurkan membawa topi pantai, kacamata hitam, atau tikar pribadi jika ingin lesehan ekstra santai!
+            </p>
+            <div class="flex justify-center space-x-2 text-2xl">
+                <span>👒</span><span>🧺</span><span>🕶️</span><span>🥖</span>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="flex items-center justify-center px-12 my-4">
+            <div class="h-px bg-stone-300 w-full"></div>
+            <span class="px-3 text-emerald-800 text-lg">✿</span>
+            <div class="h-px bg-stone-300 w-full"></div>
+        </div>
+
+        <!-- Rundown / Susunan Acara -->
+        <section class="px-6 py-4">
+            <h3 class="font-serif-elegant font-bold text-xl text-emerald-900 text-center uppercase tracking-wider mb-6">
+                Susunan Acara Piknik
+            </h3>
+            
+            <div class="relative border-l-2 border-red-700/40 ml-4 space-y-6 pb-2">
+                <!-- Item 1 -->
+                <div class="relative pl-6">
+                    <div class="absolute -left-[7px] top-1.5 w-3 h-3 bg-red-700 rounded-full border-2 border-amber-50"></div>
+                    <span class="text-xs font-bold text-red-700 bg-red-100 px-2 py-0.5 rounded">15:30 - 16:00 WIB</span>
+                    <h4 class="font-serif-elegant font-bold text-stone-900 text-base mt-1">Gelar Tikar & Sesi Poto</h4>
+                    <p class="text-xs text-stone-600">Penyambutan tamu, pembagian keranjang dan snack ringan.</p>
+                </div>
+                <!-- Item 2 -->
+                <div class="relative pl-6">
+                    <div class="absolute -left-[7px] top-1.5 w-3 h-3 bg-red-700 rounded-full border-2 border-amber-50"></div>
+                    <span class="text-xs font-bold text-red-700 bg-red-100 px-2 py-0.5 rounded">16:00 - 17:00 WIB</span>
+                    <h4 class="font-serif-elegant font-bold text-stone-900 text-base mt-1">Makan Bersama & Obrolan Santai</h4>
+                    <p class="text-xs text-stone-600">Menikmati kudapan sore di atas rumput hijau diiringi akustik.</p>
+                </div>
+                <!-- Item 3 -->
+                <div class="relative pl-6">
+                    <div class="absolute -left-[7px] top-1.5 w-3 h-3 bg-red-700 rounded-full border-2 border-amber-50"></div>
+                    <span class="text-xs font-bold text-red-700 bg-red-100 px-2 py-0.5 rounded">17:00 - 18:30 WIB</span>
+                    <h4 class="font-serif-elegant font-bold text-stone-900 text-base mt-1">Senja Akustik & Games Seru</h4>
+                    <p class="text-xs text-stone-600">Permainan tebak tebakan jadul dan doorprize piknik.</p>
+                </div>
+                <!-- Item 4 -->
+                <div class="relative pl-6">
+                    <div class="absolute -left-[7px] top-1.5 w-3 h-3 bg-red-700 rounded-full border-2 border-amber-50"></div>
+                    <span class="text-xs font-bold text-red-700 bg-red-100 px-2 py-0.5 rounded">18:30 - Selesai</span>
+                    <h4 class="font-serif-elegant font-bold text-stone-900 text-base mt-1">Sayonara & Foto Bersama</h4>
+                    <p class="text-xs text-stone-600">Berbenah dan penutupan acara UNFEST 10.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="flex items-center justify-center px-12 my-6">
+            <div class="h-px bg-stone-300 w-full"></div>
+            <span class="px-3 text-red-700 text-lg">🌼</span>
+            <div class="h-px bg-stone-300 w-full"></div>
+        </div>
+
+        <!-- RSVP & Wishes Section (Hajatan Style) -->
+        <section class="px-6 py-6 bg-gradient-to-t from-amber-50/80 to-transparent">
+            <h3 class="font-serif-elegant font-bold text-xl text-emerald-900 text-center uppercase tracking-wider mb-2">
+                Konfirmasi Kehadiran (RSVP)
+            </h3>
+            <p class="text-xs text-stone-600 text-center mb-6">
+                Mohon konfirmasi kesediaan keranjang piknik Anda melalui WhatsApp di bawah ini:
+            </p>
+
+            <form id="rsvp-form" onsubmit="sendRSVP(event)" class="space-y-4 bg-white/80 p-5 rounded-2xl border border-stone-200 shadow-sm">
+                <div>
+                    <label class="block text-xs font-bold text-stone-700 mb-1 uppercase tracking-wider">Nama Tamu</label>
+                    <input type="text" id="rsvp-name" required class="w-full px-3 py-2 text-sm bg-stone-50 border border-stone-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-700" placeholder="Nama Anda...">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-stone-700 mb-1 uppercase tracking-wider">Konfirmasi Kehadiran</label>
+                    <select id="rsvp-status" class="w-full px-3 py-2 text-sm bg-stone-50 border border-stone-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-700">
+                        <option value="Hadir Membawa Senyum & Tikar 🧺">Hadir Membawa Senyum & Tikar</option>
+                        <option value="Maaf, Berhalangan Hadir 🌧️">Maaf, Berhalangan Hadir</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-stone-700 mb-1 uppercase tracking-wider">Ucapan & Doa Piknik</label>
+                    <textarea id="rsvp-message" rows="3" required class="w-full px-3 py-2 text-sm bg-stone-50 border border-stone-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-700" placeholder="Tuliskan pesan atau doa untuk acara piknik ini..."></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-emerald-800 hover:bg-emerald-900 text-amber-50 font-serif-elegant font-bold py-3 px-4 rounded-xl shadow transition flex items-center justify-center space-x-2">
+                    <span>Kirim RSVP via WhatsApp</span>
+                    <span>📤</span>
+                </button>
+            </form>
+        </section>
+
+        <!-- Footer Closing -->
+        <footer class="text-center px-6 py-10 bg-emerald-950 text-amber-100">
+            <p class="font-cursive text-3xl mb-2 text-amber-200">Sampai Jumpa di Rumput Hijau!</p>
+            <h4 class="font-serif-elegant font-bold text-xl text-white tracking-widest uppercase mb-1">
+                Keluarga Besar UNFEST 10
+            </h4>
+            <p class="text-xs text-emerald-300/80 mt-4">
+                © 2026 Tiba-Tiba Piknik – All Rights Reserved
+            </p>
+        </footer>
+
+    </main>
+
+    <script>
+        // Parse URL parameter ?to=Name
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const toParam = urlParams.get('to');
+            
+            const recipientEl = document.getElementById('recipient-name');
+            const rsvpNameEl = document.getElementById('rsvp-name');
+            
+            let guestName = "Rekan Undangan";
+            if (toParam) {
+                // Decode URI component and uppercase for grand wedding invite feel
+                guestName = decodeURIComponent(toParam).trim();
+            }
+            
+            recipientEl.textContent = guestName;
+            rsvpNameEl.value = guestName;
+        });
+
+        // Initialize Tone.js Synth for pleasant nostalgic picnic background tune
+        let synth;
+        let musicPlaying = false;
+        let loopId = null;
+
+        function initAudio() {
+            if (!synth) {
+                synth = new Tone.Synth({
+                    oscillator: { type: "sine" },
+                    envelope: {
+                        attack: 0.1,
+                        decay: 0.3,
+                        sustain: 0.5,
+                        release: 1.2
+                    }
+                }).toDestination();
+                synth.volume.value = -12; // soft background level
+            }
+        }
+
+        // Nostalgic cheerful progression notes
+        const notes = ["C4", "E4", "G4", "B4", "C5", "G4", "E4", "D4"];
+        let noteIndex = 0;
+
+        function startMusic() {
+            initAudio();
+            Tone.start();
+            if (!musicPlaying) {
+                musicPlaying = true;
+                document.getElementById('music-icon').textContent = "🔊";
+                document.getElementById('music-label').textContent = "Memutar Musik";
+                
+                // Play loop using Tone.Transport or simple interval to avoid complex iFrame clock lockups
+                loopId = setInterval(() => {
+                    if (musicPlaying && synth) {
+                        try {
+                            synth.triggerAttackRelease(notes[noteIndex], "4n");
+                            noteIndex = (noteIndex + 1) % notes.length;
+                        } catch(e) {
+                            console.log("Audio play error", e);
+                        }
+                    }
+                }, 600);
+            }
+        }
+
+        function toggleMusic() {
+            const icon = document.getElementById('music-icon');
+            const label = document.getElementById('music-label');
+            if (musicPlaying) {
+                musicPlaying = false;
+                icon.textContent = "🔇";
+                label.textContent = "Musik Mati";
+                if(loopId) clearInterval(loopId);
+            } else {
+                startMusic();
+            }
+        }
+
+        // Open Invitation transition
+        function openInvitation() {
+            const cover = document.getElementById('cover-page');
+            const main = document.getElementById('main-content');
+            
+            // Start music automatically upon opening as requested
+            startMusic();
+
+            // Fade out cover
+            cover.style.opacity = '0';
+            setTimeout(() => {
+                cover.style.display = 'none';
+                main.classList.remove('hidden');
+                // Trigger fade in
+                setTimeout(() => {
+                    main.style.opacity = '1';
+                }, 50);
+            }, 700);
+        }
+
+        // RSVP WhatsApp Form handler
+        function sendRSVP(e) {
+            e.preventDefault();
+            const name = document.getElementById('rsvp-name').value;
+            const status = document.getElementById('rsvp-status').value;
+            const message = document.getElementById('rsvp-message').value;
+
+            // Target WhatsApp Number (placeholder or event hotline)
+            const phone = "6281234567890"; 
+            const text = `Halo Panitia UNFEST 10,%0A%0ASaya mengirimkan konfirmasi kehadiran untuk "TIBA-TIBA PIKNIK":%0A%0A*Nama:* ${encodeURIComponent(name)}%0A*Status:* ${encodeURIComponent(status)}%0A*Pesan:* ${encodeURIComponent(message)}`;
+            
+            const whatsappURL = `https://wa.me/${phone}?text=${text}`;
+            window.open(whatsappURL, '_blank');
+        }
+    </script>
+
+</body>
+</html>
