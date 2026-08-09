@@ -94,7 +94,7 @@
             position: relative;
             background-image: url('keranjang piknik - Diedit.png');
             background-size: 125% auto;
-            background-position: cente centerr;
+            background-position: center;
             background-repeat: no-repeat;
         
             border-radius: 20px;
@@ -137,12 +137,129 @@
         .animate-float {
             animation: floatSlow 3s ease-in-out infinite;
         }
+
+    /* =========================================
+       ANIMASI BUKA UNDANGAN - GAYA UNDANGAN
+       ========================================= */
+    
+    /* Cover menjadi wadah animasi */
+    #cover-page {
+        perspective: 1200px;
+        overflow: hidden;
+    }
+    
+    /* Panel utama cover */
+    #cover-page > .cover-card {
+        transition:
+            transform 1.2s cubic-bezier(0.77, 0, 0.175, 1),
+            opacity 0.8s ease;
+        transform-origin: center center;
+    }
+    
+    /* Saat undangan dibuka */
+    #cover-page.opening > .cover-card {
+        transform: scale(1.08) rotateX(8deg);
+        opacity: 0;
+    }
+    
+    /* Dua lapisan putih yang membuka ke kiri-kanan */
+    #cover-page::before,
+    #cover-page::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 50%;
+        height: 100%;
+        background: #fffdf7;
+        z-index: 20;
+        transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+        pointer-events: none;
+    }
+    
+    /* Posisi awal */
+    #cover-page::before {
+        left: 0;
+        transform-origin: left center;
+    }
+    
+    #cover-page::after {
+        right: 0;
+        transform-origin: right center;
+    }
+    
+    /* Saat dibuka */
+    #cover-page.opening::before {
+        transform: translateX(-100%);
+    }
+    
+    #cover-page.opening::after {
+        transform: translateX(100%);
+    }
+    
+    /* Efek halaman utama muncul */
+    #main-content {
+        transform: translateY(30px) scale(0.98);
+        transition:
+            opacity 1s ease,
+            transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    
+    #main-content.invitation-open {
+        opacity: 1 !important;
+        transform: translateY(0) scale(1);
+    }
+    
+    /* Sedikit efek muncul untuk isi undangan */
+    #main-content.invitation-open .animate-on-open {
+        animation: invitationReveal 1s ease forwards;
+    }
+    
+    @keyframes invitationReveal {
+        from {
+            opacity: 0;
+            transform: translateY(25px);
+        }
+    
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    /* Efek kecil untuk ikon keranjang */
+    .cover-basket-open {
+        animation: basketOpen 0.8s ease-in-out;
+    }
+    
+    @keyframes basketOpen {
+        0% {
+            transform: translateY(0) scale(1);
+        }
+    
+        50% {
+            transform: translateY(-10px) scale(1.08) rotate(-3deg);
+        }
+    
+        100% {
+            transform: translateY(0) scale(1);
+        }
+    }
+    
+    /* Mobile */
+    @media (max-width: 640px) {
+        #cover-page::before,
+        #cover-page::after {
+            transition-duration: 1s;
+        }
+    }
+        
     </style>
 </head>
 <body class="bg-emerald-950 bg-gingham font-sans-clean text-stone-800 antialiased min-h-screen flex flex-col justify-center items-center overflow-x-hidden selection:bg-red-200 selection:text-red-900">
 
-    <div id="cover-page" class="fixed inset-0 z-50 flex items-center justify-center p-4 transition-opacity duration-1000 cover-picnic">
-        <div class="relative w-full max-w-md rounded-3xl p-8 text-center shadow-2xl overflow-hidden border-4 border-amber-100 bg-[#fffdf9]/95">
+    <div id="cover-page" class="fixed inset-0 z-50 flex items-center justify-center p-4 cover-picnic">
+
+    <div class="cover-card relative w-full max-w-md rounded-3xl p-8 text-center shadow-2xl overflow-hidden border-4 border-amber-100 bg-[#fffdf9]/95">
             <!-- Decorative Flower / Daisy Corner Accent -->
             <div class="absolute -top-6 -left-6 w-20 h-20 bg-rose-100 rounded-full opacity-70 blur-sm pointer-events-none"></div>
             <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-yellow-100 rounded-full opacity-70 blur-sm pointer-events-none"></div>
@@ -490,20 +607,45 @@
         function openInvitation() {
             const cover = document.getElementById('cover-page');
             const main = document.getElementById('main-content');
-            
-            // Start music automatically upon opening as requested
+            const basket = document.getElementById('cover-basket');
+        
+            // Cegah tombol ditekan berkali-kali
+            if (cover.classList.contains('opening')) return;
+        
+            // Mulai musik setelah user melakukan klik
             startMusic();
-
-            // Fade out cover
-            cover.style.opacity = '0';
+        
+            // Animasi kecil keranjang
+            if (basket) {
+                basket.classList.remove('cover-basket-open');
+        
+                // force reflow agar animasi bisa dimainkan ulang
+                void basket.offsetWidth;
+        
+                basket.classList.add('cover-basket-open');
+            }
+        
+            // Mulai animasi membuka cover
+            setTimeout(() => {
+                cover.classList.add('opening');
+            }, 150);
+        
+            // Siapkan halaman utama
+            setTimeout(() => {
+                main.classList.remove('hidden');
+        
+                // Pastikan browser sempat merender halaman
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        main.classList.add('invitation-open');
+                    });
+                });
+            }, 500);
+        
+            // Hilangkan cover setelah animasi selesai
             setTimeout(() => {
                 cover.style.display = 'none';
-                main.classList.remove('hidden');
-                // Trigger fade in
-                setTimeout(() => {
-                    main.style.opacity = '1';
-                }, 50);
-            }, 700);
+            }, 1400);
         }
 
         // RSVP WhatsApp Form handler
@@ -511,11 +653,14 @@
             e.preventDefault();
             const name = document.getElementById('rsvp-name').value;
             const status = document.getElementById('rsvp-status').value;
-            const message = document.getElementById('rsvp-message').value;
 
             // Target WhatsApp Number (placeholder or event hotline)
             const phone = "6281234567890"; 
-            const text = `Halo Panitia UNFEST 10,%0A%0ASaya mengirimkan konfirmasi kehadiran untuk "TIBA-TIBA PIKNIK":%0A%0A*Nama:* ${encodeURIComponent(name)}%0A*Status:* ${encodeURIComponent(status)}%0A*Pesan:* ${encodeURIComponent(message)}`;
+            const text =
+                `Halo Panitia UNFEST 10,%0A%0A` +
+                `Saya mengirimkan konfirmasi kehadiran untuk "TIBA-TIBA PIKNIK":%0A%0A` +
+                `*Nama:* ${encodeURIComponent(name)}%0A` +
+                `*Status:* ${encodeURIComponent(status)}`;
             
             const whatsappURL = `https://wa.me/${phone}?text=${text}`;
             window.open(whatsappURL, '_blank');
