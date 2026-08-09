@@ -18,548 +18,124 @@
         .font-cursive { font-family: 'Great Vibes', cursive; }
         .font-sans-clean { font-family: 'Quicksand', sans-serif; }
 
-       /* =========================================
-           PICNIC VINTAGE - BACKGROUND UTAMA
-           ========================================= */
-        
-        body {
-            margin: 0;
-            background:
-                linear-gradient(
-                    rgba(30, 75, 25, 0.08),
-                    rgba(30, 75, 25, 0.08)
-                ),
-                url('picnic-bg.png') center / cover fixed no-repeat;
+       /* Picnic Grass Background */
+        .bg-gingham {
+            background-color: #3f7d35;
+            background-image: url('picnic-bg.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
         }
         
-        /* Background halaman */
-        .bg-gingham,
+        /* COVER PICNIC */
         .cover-picnic {
-            background:
-                linear-gradient(
-                    rgba(30, 75, 25, 0.05),
-                    rgba(30, 75, 25, 0.05)
-                ),
-                url('picnic-bg.png') center / cover fixed no-repeat;
+            background-image: url('picnic-bg.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
-        
-        
-        /* =========================================
-           LEMBAR UNDANGAN
-           ========================================= */
-        
+
+
+        /* BACKGROUND UTAMA UNDANGAN */
         .picnic-sheet {
-            position: relative;
-        
-            background:
-                linear-gradient(
-                    rgba(255, 253, 247, 0.97),
-                    rgba(255, 253, 247, 0.97)
-                ),
-                #fffdf7;
-        
-            box-shadow:
-                0 20px 50px rgba(0,0,0,0.25);
-        
+            background-color: #fffdf7;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
             padding: 0;
-        
-            overflow: hidden;
-        
-            /* tampilan seperti kertas */
-            border-left: 1px solid rgba(120, 90, 50, 0.15);
-            border-right: 1px solid rgba(120, 90, 50, 0.15);
         }
         
-        
-        /* =========================================
-           AKSEN KAIN GINGHAM DI SISI UNDANGAN
-           ========================================= */
-        
-        .picnic-sheet::before,
-        .picnic-sheet::after {
-            content: "";
-            position: absolute;
-        
-            top: 0;
-            bottom: 0;
-        
-            width: 38px;
-        
-            background:
-                repeating-linear-gradient(
-                    0deg,
-                    rgba(255,255,255,0.35) 0px,
-                    rgba(255,255,255,0.35) 8px,
-                    transparent 8px,
-                    transparent 16px
-                ),
-                repeating-linear-gradient(
-                    90deg,
-                    #b52a2a 0px,
-                    #b52a2a 8px,
-                    #d84a4a 8px,
-                    #d84a4a 16px
-                );
-        
-            opacity: 0.95;
-        
-            z-index: 1;
-        }
-        
-        .picnic-sheet::before {
-            left: 0;
-        }
-        
-        .picnic-sheet::after {
-            right: 0;
-        }
-        
-        
-        /* =========================================
-           HEADER
-           ========================================= */
-        
-        .picnic-header {
-            position: relative;
-            padding: 70px 60px 45px;
-            text-align: center;
-        
-            background:
-                radial-gradient(
-                    circle at 15% 20%,
-                    rgba(255,220,120,0.18),
-                    transparent 25%
-                ),
-                radial-gradient(
-                    circle at 85% 25%,
-                    rgba(255,180,180,0.15),
-                    transparent 25%
-                );
-        }
-        
-        .picnic-header::after {
-            content: "";
-            position: absolute;
-        
-            left: 15%;
-            right: 15%;
-            bottom: 0;
-        
-            height: 1px;
-        
-            background: rgba(100, 80, 50, 0.20);
-        }
-        
-        
-        /* =========================================
-           JUDUL UTAMA
-           ========================================= */
-        
-        .picnic-subtitle {
-            font-size: 25px;
-            color: #17634d;
-            margin-bottom: 10px;
-        }
-        
-        .picnic-title {
-            font-size: clamp(42px, 7vw, 68px);
-            line-height: 0.95;
-        
-            font-weight: 900;
-        
-            color: #b82b2b;
-        
-            letter-spacing: 2px;
-        
-            text-transform: uppercase;
-        
-            text-shadow:
-                1px 1px 0 rgba(255,255,255,0.8);
-        }
-        
-        .picnic-edition {
-            display: inline-block;
-        
-            margin-top: 18px;
-        
-            padding: 8px 22px;
-        
-            background: #075b46;
-        
-            color: #fff9e8;
-        
-            border-radius: 999px;
-        
-            font-size: 14px;
-        
-            font-weight: 800;
-        
-            letter-spacing: 3px;
-        }
-        
-        
-        /* =========================================
-           DECORASI BUNGA
-           ========================================= */
-        
-        .picnic-flower {
-            position: absolute;
-        
-            font-size: 42px;
-        
-            opacity: 0.85;
-        
-            pointer-events: none;
-        }
-        
-        .picnic-flower-left {
-            left: 35px;
-            top: 45px;
-        }
-        
-        .picnic-flower-right {
-            right: 35px;
-            top: 70px;
-        }
-        
-        
-        /* =========================================
-           SECTION WAKTU & TEMPAT
-           ========================================= */
-        
-        .event-section {
-            padding: 55px 55px 45px;
-        }
-        
-        .section-title {
-            text-align: center;
-        
-            color: #075b46;
-        
-            font-size: 25px;
-        
-            font-weight: 800;
-        
-            letter-spacing: 2px;
-        
-            text-transform: uppercase;
-        
-            margin-bottom: 35px;
-        }
-        
-        .event-grid {
-            display: grid;
-        
-            grid-template-columns: 1fr 1fr;
-        
-            gap: 24px;
-        }
-        
-        .event-card {
-            position: relative;
-        
-            background: rgba(255, 251, 235, 0.78);
-        
-            border: 1px solid rgba(205, 165, 80, 0.35);
-        
-            border-radius: 6px;
-        
-            padding: 30px 25px;
-        
-            text-align: center;
-        
-            box-shadow:
-                0 4px 12px rgba(0,0,0,0.04);
-        }
-        
-        .event-card-title {
-            color: #c52d2d;
-        
-            font-size: 16px;
-        
-            font-weight: 800;
-        
-            letter-spacing: 1px;
-        
-            margin-bottom: 12px;
-        }
-        
-        .event-card-main {
-            color: #252525;
-        
-            font-family: Georgia, serif;
-        
-            font-size: 23px;
-        
-            font-weight: 700;
-        }
-        
-        .event-card-desc {
-            margin-top: 8px;
-        
-            color: #777;
-        
-            font-size: 14px;
-        
-            line-height: 1.6;
-        }
-        
-        
-        /* =========================================
-           GOOGLE MAPS BUTTON
-           ========================================= */
-        
-        .maps-button {
-            display: inline-block;
-        
-            margin-top: 18px;
-        
-            padding: 10px 20px;
-        
-            background: #075b46;
-        
-            color: #fffdf7;
-        
-            border-radius: 999px;
-        
-            font-size: 13px;
-        
-            font-weight: 700;
-        
-            text-decoration: none;
-        
-            transition: 0.25s ease;
-        }
-        
-        .maps-button:hover {
-            background: #043d30;
-        
-            transform: translateY(-2px);
-        }
-        
-        
-        /* =========================================
-           RUNDOWN
-           ========================================= */
-        
+        /* BACKGROUND KHUSUS RUNDOWN */
         .rundown-picnic {
-            margin: 25px 50px;
-        
-            padding: 45px 35px;
-        
-            border-radius: 8px;
-        
-            background:
-                linear-gradient(
-                    rgba(255,253,247,0.92),
-                    rgba(255,253,247,0.92)
-                ),
-                url('bg daisy.jpg') center / cover no-repeat;
-        
-            border: 1px solid rgba(120,90,50,0.15);
-        
-            min-height: auto;
+            background-image: url('bg daisy.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 20px;
+            padding: 35px 30px;
+            margin: 20px 24px;
+            position: relative;
+            overflow: hidden;
+            min-height: 700px;
         }
-        
+
+        /* Judul Rundown dengan Background Tersendiri */
         .rundown-title {
             display: inline-block;
-        
-            background: #075b46;
-        
-            color: #fffdf7;
-        
+            background: rgba(255, 253, 247, 0.95);
+            color: #14532d;
             padding: 10px 24px;
-        
-            border-radius: 999px;
-        
-            border: none;
-        
-            box-shadow: none;
-        
+            border-radius: 14px;
+            border: 2px solid rgba(180, 83, 9, 0.35);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
             position: relative;
+            z-index: 2;
         }
-        
+
+        /* Supaya timeline lebih mudah dibaca di atas background */
         .rundown-content {
-            margin-top: 25px;
-        
-            background: rgba(255,255,255,0.65);
-        
-            border-radius: 6px;
-        
-            padding: 25px 20px;
-        
-            box-shadow: none;
+            background: rgba(255, 253, 247, 0.90);
+            border-radius: 16px;
+            padding: 20px 18px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
+
+       /* ================================
+           RSVP SECTION
+           ================================ */
         
-        
-        /* =========================================
-           RSVP
-           ========================================= */
-        
+        /* Bagian luar RSVP tetap bersih */
         .rsvp-section {
-            padding: 45px 55px 55px;
-        
+            padding: 24px;
             text-align: center;
         }
         
-        .rsvp-form {
-            max-width: 560px;
-        
-            margin: 25px auto 0;
-        
-            padding: 30px;
-        
-            background: rgba(255,251,235,0.75);
-        
-            border: 1px solid rgba(205,165,80,0.35);
-        
-            border-radius: 6px;
-        }
-        
-        .rsvp-input {
-            width: 100%;
-        
-            box-sizing: border-box;
-        
-            padding: 13px 15px;
-        
-            background: rgba(255,255,255,0.95);
-        
-            border: 1px solid #d8d0c0;
-        
-            border-radius: 6px;
-        
-            font-size: 14px;
-        
-            outline: none;
-        }
-        
-        .rsvp-input:focus {
-            border-color: #075b46;
-        
-            box-shadow:
-                0 0 0 2px rgba(7,91,70,0.12);
-        }
-        
-        .rsvp-button {
-            width: 100%;
-        
-            margin-top: 8px;
-        
-            padding: 13px;
-        
-            background: #075b46;
-        
-            color: #fffdf7;
-        
-            border: none;
-        
-            border-radius: 6px;
-        
-            font-weight: 700;
-        
-            cursor: pointer;
-        
-            transition: 0.25s ease;
-        }
-        
-        .rsvp-button:hover {
-            background: #043d30;
-        
-            transform: translateY(-1px);
-        }
-        
-        
-        /* =========================================
-           FOOTER
-           ========================================= */
-        
-        .picnic-footer {
+        /* Background keranjang HANYA pada form */
+        .rsvp-form-basket {
             position: relative;
+            background-image: url('keranjang piknik - Diedit.png');
+            background-size: 125% auto;
+            background-position: cente centerr;
+            background-repeat: no-repeat;
         
-            padding: 55px 30px;
+            border-radius: 20px;
+            padding: 28px 24px;
+            margin-top: 20px;
         
-            text-align: center;
-        
-            background: #075b46;
-        
-            color: #fff4ce;
+            overflow: hidden;
+            border: 1px solid rgba(120, 90, 50, 0.18);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.10);
         }
         
-        .picnic-footer p:first-child {
-            font-size: 28px;
-            margin-bottom: 12px;
+        /* Lapisan transparan di atas gambar */
+        .rsvp-form-basket::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 253, 247, 0.35);
+            z-index: 0;
         }
         
-        
-        /* =========================================
-           ANIMASI
-           ========================================= */
-        
+        /* Isi form berada di atas gambar */
+        .rsvp-form-basket > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Soft swaying animations for vintage feel */
         @keyframes sway {
-            0%, 100% {
-                transform: rotate(-3deg);
-            }
-        
-            50% {
-                transform: rotate(3deg);
-            }
+            0%, 100% { transform: rotate(-3deg); }
+            50% { transform: rotate(3deg); }
         }
-        
         .animate-sway {
             animation: sway 4s ease-in-out infinite;
         }
-        
+
         @keyframes floatSlow {
-            0%, 100% {
-                transform: translateY(0);
-            }
-        
-            50% {
-                transform: translateY(-8px);
-            }
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
         }
-        
         .animate-float {
             animation: floatSlow 3s ease-in-out infinite;
-        }
-        
-        
-        /* =========================================
-           MOBILE
-           ========================================= */
-        
-        @media (max-width: 640px) {
-        
-            .picnic-sheet::before,
-            .picnic-sheet::after {
-                width: 20px;
-            }
-        
-            .picnic-header {
-                padding: 55px 35px 35px;
-            }
-        
-            .picnic-title {
-                font-size: 42px;
-            }
-        
-            .event-section {
-                padding: 40px 30px;
-            }
-        
-            .event-grid {
-                grid-template-columns: 1fr;
-            }
-        
-            .rundown-picnic {
-                margin: 20px 25px;
-                padding: 35px 20px;
-            }
-        
-            .rsvp-section {
-                padding: 40px 30px;
-            }
         }
     </style>
 </head>
@@ -644,58 +220,26 @@
             <div class="h-px bg-stone-300 w-full"></div>
         </div>
 
-        <!-- EVENT DETAILS -->
-        <section class="event-section">
-        
-            <h3 class="section-title">
+        <!-- Event Details Section (Hajatan Style) -->
+        <section class="px-6 py-6 text-center">
+            <h3 class="font-serif-elegant font-bold text-xl text-emerald-900 uppercase tracking-wider mb-6 border-b border-stone-200 pb-2 inline-block">
                 Waktu & Tempat
             </h3>
-        
-            <div class="event-grid">
-        
-                <!-- TANGGAL -->
-                <div class="event-card">
-        
-                    <div class="event-card-title">
-                        🗓️ HARI / TANGGAL
-                    </div>
-        
-                    <div class="event-card-main">
-                        Sabtu, 22 Agustus 2026
-                    </div>
-        
-                    <div class="event-card-desc">
-                        Pukul 14.00 WIB s.d. Selesai
-                        <br>
-                        (Menjelang Senja)
-                    </div>
-        
+            
+            <div class="space-y-6">
+                <!-- Date & Time Card -->
+                <div class="bg-amber-50/60 rounded-2xl p-4 border border-amber-200/60 shadow-xs">
+                    <div class="text-red-700 font-bold text-lg mb-1">🗓️ HARI / TANGGAL</div>
+                    <div class="font-serif-elegant text-xl font-bold text-stone-900">Sabtu, 22 Agustus 2026</div>
+                    <div class="text-sm text-stone-600 mt-1">Pukul 14.00 WIB s.d. Selesai (Menjelang Senja)</div>
                 </div>
-        
-        
-                <!-- LOKASI -->
-                <div class="event-card">
-        
-                    <div class="event-card-title">
-                        📍 LOKASI
-                    </div>
-        
-                    <div class="event-card-main">
-                        Di Bukit Diponegoro
-                    </div>
-        
-                    <div class="event-card-desc">
-                        Kelurahan Tembalang,
-                        Kecamatan Tembalang,
-                        Kota Semarang,
-                        Jawa Tengah
-                    </div>
-        
-                    <a
-                        href="https://maps.app.goo.gl/5tS1kGwy76SMK2Tz7"
-                        target="_blank"
-                        class="maps-button"
-                    >
+
+                <!-- Location Card -->
+                <div class="bg-amber-50/60 rounded-2xl p-4 border border-amber-200/60 shadow-xs">
+                    <div class="text-red-700 font-bold text-lg mb-1">📍 LOKASI</div>
+                    <div class="font-serif-elegant text-lg font-bold text-stone-900">Di Bukit Diponegoro</div>
+                    <p class="text-xs text-stone-600 mt-1">Kelurahan Tembalang, Kecamatan Tembalang, Kota Semarang, Jawa Tengah</p>
+                    <a href="https://maps.app.goo.gl/5tS1kGwy76SMK2Tz7" class="inline-block mt-3 bg-emerald-800 hover:bg-emerald-900 text-amber-50 text-xs font-bold py-2 px-4 rounded-full shadow transition">
                         🗺️ Buka Google Maps
                     </a>
                 </div>
@@ -715,7 +259,7 @@
              <!-- Judul Rundown -->
             <div class="text-center mb-6">
                 <h3 class="rundown-title font-serif-elegant font-bold text-xl uppercase tracking-wider">
-                    Susunan Acara
+                    Susunan Rundown
                 </h3>
             </div>
 
@@ -784,26 +328,27 @@
         </div>
 
         <!-- RSVP SECTION -->
-        <section class="rsvp-section"> 
+        <section class="rsvp-section">
         
-            <h3 class="section-title mb-2">
-                Konfirmasi Kehadiran
+            <!-- Judul tetap di luar background keranjang -->
+            <h3 class="font-serif-elegant font-bold text-xl text-emerald-900 text-center uppercase tracking-wider mb-2">
+                Konfirmasi Kehadiran (RSVP)
             </h3>
         
-            <p class="text-sm text-stone-600 text-center mb-6">
-                Mohon konfirmasi kehadiran Anda melalui WhatsApp.
+            <p class="text-xs text-stone-600 text-center mb-5">
+                Mohon konfirmasi kehadiran Anda melalui WhatsApp di bawah ini:
             </p>
         
-        
+            <!-- KERANJANG HANYA DI BAGIAN FORM -->
             <form 
                 id="rsvp-form" 
                 onsubmit="sendRSVP(event)" 
-                class="rsvp-form space-y-4"
+                class="rsvp-form-basket space-y-4"
             >
-                <!-- Nama -->
-                <div class="text-left">
         
-                    <label class="block text-xs font-bold text-stone-700 mb-2 uppercase tracking-wider">
+                <!-- Nama Tamu -->
+                <div class="text-left">
+                    <label class="block text-xs font-bold text-stone-700 mb-1 uppercase tracking-wider">
                         Nama Tamu
                     </label>
         
@@ -811,21 +356,21 @@
                         type="text" 
                         id="rsvp-name" 
                         required 
-                        class="rsvp-input"
+                        class="w-full px-4 py-3 text-sm bg-white/90 border border-stone-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-700"
                         placeholder="Nama Anda..."
                     >
                 </div>
         
-                <!-- Kehadiran -->
-                <div class="text-left">
         
-                    <label class="block text-xs font-bold text-stone-700 mb-2 uppercase tracking-wider">
+                <!-- Konfirmasi Kehadiran -->
+                <div class="text-left">
+                    <label class="block text-xs font-bold text-stone-700 mb-1 uppercase tracking-wider">
                         Konfirmasi Kehadiran
                     </label>
         
                     <select 
                         id="rsvp-status" 
-                        class="rsvp-input"
+                        class="w-full px-4 py-3 text-sm bg-white/90 border border-stone-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-700"
                     >
                         <option value="Hadir Membawa Senyum">
                             Hadir Membawa Senyum
@@ -837,17 +382,21 @@
                     </select>
                 </div>
         
+        
+                <!-- Tombol WhatsApp -->
                 <button 
                     type="submit" 
-                    class="rsvp-button"
+                    class="w-full bg-emerald-800 hover:bg-emerald-900 text-amber-50 font-serif-elegant font-bold py-3 px-4 rounded-xl shadow transition flex items-center justify-center space-x-2"
                 >
-                    Kirim RSVP via WhatsApp 📤
+                    <span>Kirim RSVP via WhatsApp</span>
+                    <span>📤</span>
                 </button>
-            </form>
-        </section>
         
+            </form>
+        
+        </section>
         <!-- Footer Closing -->
-        <footer class="picnic-footer">
+        <footer class="text-center px-6 py-10 bg-emerald-950 text-amber-100">
             <p class="font-cursive text-3xl mb-2 text-amber-200">Sampai Jumpa di Rumput Hijau!</p>
             <h4 class="font-serif-elegant font-bold text-xl text-white tracking-widest uppercase mb-1">
                 Keluarga Besar UNFEST 10
@@ -962,14 +511,11 @@
             e.preventDefault();
             const name = document.getElementById('rsvp-name').value;
             const status = document.getElementById('rsvp-status').value;
+            const message = document.getElementById('rsvp-message').value;
 
             // Target WhatsApp Number (placeholder or event hotline)
             const phone = "6281234567890"; 
-            const text =
-                `Halo Panitia UNFEST 10,%0A%0A` +
-                `Saya mengirimkan konfirmasi kehadiran untuk "TIBA-TIBA PIKNIK":%0A%0A` +
-                `*Nama:* ${encodeURIComponent(name)}%0A` +
-                `*Status:* ${encodeURIComponent(status)}`;
+            const text = `Halo Panitia UNFEST 10,%0A%0ASaya mengirimkan konfirmasi kehadiran untuk "TIBA-TIBA PIKNIK":%0A%0A*Nama:* ${encodeURIComponent(name)}%0A*Status:* ${encodeURIComponent(status)}%0A*Pesan:* ${encodeURIComponent(message)}`;
             
             const whatsappURL = `https://wa.me/${phone}?text=${text}`;
             window.open(whatsappURL, '_blank');
