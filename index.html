@@ -25,8 +25,14 @@
             background-size: cover;
             background-position: center top;
             background-repeat: no-repeat;
-            background-attachment: fixed;
+            background-attachment: scroll;
         }
+
+        @media (max-width: 768px) {
+            .bg-gingham {
+                background-size: auto 100%;
+                background-position: center top;
+            }
         
         /* COVER PICNIC */
        .cover-picnic {
@@ -142,7 +148,7 @@
 <body class="bg-emerald-950 bg-gingham font-sans-clean text-stone-800 antialiased min-h-screen flex flex-col justify-center items-center overflow-x-hidden selection:bg-red-200 selection:text-red-900">
 
     <div id="cover-page" class="fixed inset-0 z-50 flex items-center justify-center p-4 transition-opacity duration-1000 cover-picnic">
-        <div class="relative w-full max-w-md rounded-3xl p-8 text-center shadow-2xl overflow-hidden border-4 border-amber-100 bg-[#fffdf9]/95">
+        <div class="relative w-full max-w-md rounded-3xl p-5 text-center shadow-2xl overflow-hidden border-4 border-amber-100 bg-[#fffdf9]/95">
             <!-- Decorative Flower / Daisy Corner Accent -->
             <div class="absolute -top-6 -left-6 w-20 h-20 bg-rose-100 rounded-full opacity-70 blur-sm pointer-events-none"></div>
             <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-yellow-100 rounded-full opacity-70 blur-sm pointer-events-none"></div>
